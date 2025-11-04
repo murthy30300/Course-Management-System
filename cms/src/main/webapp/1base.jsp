@@ -9,7 +9,7 @@
 <link rel="shortcut icon"
 	href="https://e7.pngegg.com/pngimages/1003/697/png-clipart-teacher-illustration-training-expert-management-education-learning-skills-certificate-icon-miscellaneous-blue-thumbnail.png"
 	type="image/x-icon">
-<title>Course management</title>
+<title>Course management System</title>
 
 </head>
 
