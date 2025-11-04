@@ -3,16 +3,18 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Installing Maven...
+      - echo "Checking Maven version..."
       - mvn --version
 
   build:
     commands:
-      - echo Building project inside cms folder...
+      - echo "Building project inside cms folder..."
       - cd cms
       - mvn clean package -DskipTests
+      - echo "Renaming WAR to ROOT.war..."
+      - mv target/*.war target/ROOT.war
 
 artifacts:
   files:
-    - cms/target/cms.war
+    - cms/target/ROOT.war
   discard-paths: yes
