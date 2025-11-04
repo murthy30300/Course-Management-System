@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing Maven...
+      - mvn --version
+
+  pre_build:
+    commands:
+      - echo Entering project directory...
+      - cd cms
+
+  build:
+    commands:
+      - echo Packaging WAR file...
+      - mvn clean package -DskipTests
+
+  post_build:
+    commands:
+      - echo Build complete. Preparing WAR artifact...
+
+artifacts:
+  files:
+    - cms/target/cms.war
+  discard-paths: yes
