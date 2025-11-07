@@ -15,8 +15,11 @@
         // Load the MySQL driver
         Class.forName("com.mysql.jdbc.Driver");
         // Establish connection to the database
-        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
-
+        //con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
+String dbURL = "jdbc:mysql://mysql-1811be34-slack-to-surplus.k.aivencloud.com:26890/db?sslmode=require";
+        String dbUser = "avnadmin";
+        String dbPassword = "AVNS_dn_iG7IFkq48bsf3Mzl";
+         con = DriverManager.getConnection(dbURL, dbUser, dbPassword);
         // SQL query to update the forum entry
         String sql = "UPDATE forum SET sender_name = ?, subject = ?, message = ? WHERE id = ?";
         ps = con.prepareStatement(sql);

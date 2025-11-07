@@ -29,31 +29,34 @@
 .breadcrumb-item+.breadcrumb-item::before {
 	content: ">";
 }
+
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-.center-align {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 1.5em;
-}
-.center-align svg {
-    margin-left: 10px;
-    fill: #000;
-}
-a {
-    text-decoration: none;
-    color: black;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	margin: 0;
+	font-family: Arial, sans-serif;
 }
 
+.center-align {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+.center-align svg {
+	margin-left: 10px;
+	fill: #000;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
 </style>
 </head>
 <body>
@@ -65,11 +68,11 @@ a {
 						courses</a></li>
 				<li class="breadcrumb-item active" aria-current="page">
 					<%
-					 HttpSession stp = request.getSession(false);
-					String utp = (stp != null) ? (String) stp.getAttribute("username") : null; 
-					
+					HttpSession stp = request.getSession(false);
+					String utp = (stp != null) ? (String) stp.getAttribute("username") : null;
+
 					/* String username=null;
-					
+
 					HttpSession session1 = request.getSession(false);  // Retrieve existing session if it exists
 					if (session1 != null) {
 					    username = (String) session.getAttribute("username");
@@ -83,8 +86,11 @@ a {
 						try {
 							courseId = Integer.parseInt(courseIdParam);
 							Class.forName("com.mysql.cj.jdbc.Driver");
-							Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
-
+							//Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
+							String dbURL = "jdbc:mysql://mysql-1811be34-slack-to-surplus.k.aivencloud.com:26890/db?sslmode=require";
+							String dbUser = "avnadmin";
+							String dbPassword = "AVNS_dn_iG7IFkq48bsf3Mzl";
+							Connection conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
 							// Get course_name from courses table
 							String courseQuery = "SELECT course_name FROM courses WHERE course_id = ?";
 							PreparedStatement courseStmt = conn.prepareStatement(courseQuery);
@@ -255,13 +261,17 @@ a {
 
 	</div>
 	<h3 class="center-align">
-    <a href="playContent.jsp?courseId=<%= courseId %>">Need help with this concept? Watch our lecture video
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
-            <path d="M3.42847 3.52383C5.4919 1.30171 21.0128 6.74513 21 8.73253C20.9855 10.9862 14.9387 11.6795 13.2626 12.1497C12.2548 12.4325 11.9848 12.7223 11.7524 13.7792C10.6999 18.5657 10.1715 20.9464 8.96711 20.9997C7.04737 21.0845 1.41472 5.69242 3.42847 3.52383Z" stroke="currentColor" stroke-width="1.5" />
+		<a href="playContent.jsp?courseId=<%=courseId%>">Need help with
+			this concept? Watch our lecture video <svg
+				xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+				height="24" color="#000000" fill="none">
+            <path
+					d="M3.42847 3.52383C5.4919 1.30171 21.0128 6.74513 21 8.73253C20.9855 10.9862 14.9387 11.6795 13.2626 12.1497C12.2548 12.4325 11.9848 12.7223 11.7524 13.7792C10.6999 18.5657 10.1715 20.9464 8.96711 20.9997C7.04737 21.0845 1.41472 5.69242 3.42847 3.52383Z"
+					stroke="currentColor" stroke-width="1.5" />
         </svg>
-    </a>
-</h3>
-	
+		</a>
+	</h3>
+
 
 
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

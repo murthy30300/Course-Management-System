@@ -22,8 +22,11 @@
             courseId = Integer.parseInt(courseIdParam);
             
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
-
+           // Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
+String dbURL = "jdbc:mysql://mysql-1811be34-slack-to-surplus.k.aivencloud.com:26890/db?sslmode=require";
+        String dbUser = "avnadmin";
+        String dbPassword = "AVNS_dn_iG7IFkq48bsf3Mzl";
+        Connection conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
             String videoQuery = "SELECT cv.video_id, cv.video_title, cv.video_link, cv.course_description, cv.instructor_details FROM course_videos cv WHERE cv.course_id = ?";
             PreparedStatement videoStmt = conn.prepareStatement(videoQuery);
             videoStmt.setInt(1, courseId);

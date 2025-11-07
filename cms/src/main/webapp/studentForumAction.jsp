@@ -11,7 +11,11 @@
 
     try {
         Class.forName("com.mysql.jdbc.Driver");
-        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
+       // con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
+       String dbURL = "jdbc:mysql://mysql-1811be34-slack-to-surplus.k.aivencloud.com:26890/db?sslmode=require";
+        String dbUser = "avnadmin";
+        String dbPassword = "AVNS_dn_iG7IFkq48bsf3Mzl";
+         con = DriverManager.getConnection(dbURL, dbUser, dbPassword);
         String sql = "INSERT INTO forum (sender_name, subject, message) VALUES (?, ?, ?)";
         ps = con.prepareStatement(sql);
         ps.setString(1, senderName);

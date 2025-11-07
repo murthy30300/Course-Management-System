@@ -10,7 +10,11 @@
     PreparedStatement pstmt = null;
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
+        String dbURL = "jdbc:mysql://mysql-1811be34-slack-to-surplus.k.aivencloud.com:26890/db?sslmode=require";
+        String dbUser = "avnadmin";
+        String dbPassword = "AVNS_dn_iG7IFkq48bsf3Mzl";
+        con = DriverManager.getConnection(dbURL, dbUser, dbPassword);
+        //con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
         String sql = "UPDATE forum SET sender_name = ?, subject = ?, message = ? WHERE id = ?";
         pstmt = con.prepareStatement(sql);
         pstmt.setString(1, senderName);

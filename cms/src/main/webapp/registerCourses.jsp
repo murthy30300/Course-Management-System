@@ -10,8 +10,11 @@
 
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
-
+       // Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
+String dbURL = "jdbc:mysql://mysql-1811be34-slack-to-surplus.k.aivencloud.com:26890/db?sslmode=require";
+        String dbUser = "avnadmin";
+        String dbPassword = "AVNS_dn_iG7IFkq48bsf3Mzl";
+        Connection conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
         // Debugging: Print connection status
         if (conn != null) {
             out.println("Database connection established.<br>");

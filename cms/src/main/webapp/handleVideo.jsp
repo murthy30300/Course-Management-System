@@ -19,8 +19,11 @@
 
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
-
+       // conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
+String dbURL = "jdbc:mysql://mysql-1811be34-slack-to-surplus.k.aivencloud.com:26890/db?sslmode=require";
+        String dbUser = "avnadmin";
+        String dbPassword = "AVNS_dn_iG7IFkq48bsf3Mzl";
+         conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
         if ("insert".equals(operation)) {
             String videoTitle = request.getParameter("video_title");
             String videoLink = request.getParameter("video_link");

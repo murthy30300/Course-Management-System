@@ -51,7 +51,11 @@
                         ResultSet rs = null;
                         try {
                             Class.forName("com.mysql.cj.jdbc.Driver");
-                            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
+                            String dbURL = "jdbc:mysql://mysql-1811be34-slack-to-surplus.k.aivencloud.com:26890/db?sslmode=require";
+                            String dbUser = "avnadmin";
+                            String dbPassword = "AVNS_dn_iG7IFkq48bsf3Mzl";
+                             conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
+                            //conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
                             String sql = "SELECT course_id, course_name FROM courses";
                             pstmt = conn.prepareStatement(sql);
                             rs = pstmt.executeQuery();

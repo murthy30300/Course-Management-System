@@ -169,8 +169,11 @@ body {
 
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
-
+			//conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
+		String dbURL = "jdbc:mysql://mysql-1811be34-slack-to-surplus.k.aivencloud.com:26890/db?sslmode=require";
+        String dbUser = "avnadmin";
+        String dbPassword = "AVNS_dn_iG7IFkq48bsf3Mzl";
+        conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
 			// Get student ID from username
 			String idQuery = "SELECT students.student_id FROM users INNER JOIN students ON users.student_id = students.student_id WHERE users.username = ?";
 			pstmt = conn.prepareStatement(idQuery);

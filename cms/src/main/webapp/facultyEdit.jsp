@@ -18,20 +18,23 @@
             return;
         }
 
-        String dbURL = "jdbc:mysql://localhost:3306/db";
+      /*   String dbURL = "jdbc:mysql://localhost:3306/db";
         String dbUser = "root";
-        String dbPassword = "admin";
+        String dbPassword = "admin"; */
 
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        
+        String dbURL = "jdbc:mysql://mysql-1811be34-slack-to-surplus.k.aivencloud.com:26890/db?sslmode=require";
+        String dbUser = "avnadmin";
+        String dbPassword = "AVNS_dn_iG7IFkq48bsf3Mzl";
+       
         String name = "", department = "", email = "", phone = "", address = "", city = "", state = "", zip = "", country = "", dob = "", gender = "", qualification = "", specialization = "", linkedin = "", website = "";
         int experience = 0;
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
+             conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
 
             String query = "SELECT * FROM faculty WHERE facultyId = ?";
             pstmt = conn.prepareStatement(query);

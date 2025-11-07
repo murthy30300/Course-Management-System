@@ -40,8 +40,11 @@
         if (valid) {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
-
+                //Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
+String dbURL = "jdbc:mysql://mysql-1811be34-slack-to-surplus.k.aivencloud.com:26890/db?sslmode=require";
+        String dbUser = "avnadmin";
+        String dbPassword = "AVNS_dn_iG7IFkq48bsf3Mzl";
+        Connection con = DriverManager.getConnection(dbURL, dbUser, dbPassword);
                 // Validate existing password
                 String checkPasswordQuery = "SELECT password FROM users WHERE student_id = ?";
                 PreparedStatement checkStmt = con.prepareStatement(checkPasswordQuery);

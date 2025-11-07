@@ -41,13 +41,17 @@
                     PreparedStatement ps = null;
                     ResultSet rs = null;
                     try {
-                        String url = "jdbc:mysql://localhost:3306/db";
+                       /*  String url = "jdbc:mysql://localhost:3306/db";
                         String user = "root";
                         String password = "admin";
-
+ */
+ String dbURL = "jdbc:mysql://mysql-1811be34-slack-to-surplus.k.aivencloud.com:26890/db?sslmode=require";
+ String dbUser = "avnadmin";
+ String dbPassword = "AVNS_dn_iG7IFkq48bsf3Mzl";
+ con = DriverManager.getConnection(dbURL, dbUser, dbPassword);
                         // Load MySQL JDBC Driver
                         Class.forName("com.mysql.cj.jdbc.Driver");
-                        con = DriverManager.getConnection(url, user, password);
+                       // con = DriverManager.getConnection(url, user, password);
 
                         ps = con.prepareStatement("SELECT * FROM courses");
                         rs = ps.executeQuery();

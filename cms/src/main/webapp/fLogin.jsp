@@ -16,8 +16,11 @@
 
 	try {
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
-
+		//Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
+String dbURL = "jdbc:mysql://mysql-1811be34-slack-to-surplus.k.aivencloud.com:26890/db?sslmode=require";
+        String dbUser = "avnadmin";
+        String dbPassword = "AVNS_dn_iG7IFkq48bsf3Mzl";
+        Connection con = DriverManager.getConnection(dbURL, dbUser, dbPassword);
 		PreparedStatement ps = con.prepareStatement("SELECT * FROM faculty_user WHERE faculty_username=? AND f_password=?");
 		ps.setString(1, username);
 		ps.setString(2, password);

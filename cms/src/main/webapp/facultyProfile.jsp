@@ -39,9 +39,13 @@
             PreparedStatement pstmt = null;
             ResultSet rs = null;
 
-            String dbURL = "jdbc:mysql://localhost:3306/db";
+           /*  String dbURL = "jdbc:mysql://localhost:3306/db";
             String dbUser = "root";
-            String dbPassword = "admin";
+            String dbPassword = "admin"; */
+            String dbURL = "jdbc:mysql://mysql-1811be34-slack-to-surplus.k.aivencloud.com:26890/db?sslmode=require";
+            String dbUser = "avnadmin";
+            String dbPassword = "AVNS_dn_iG7IFkq48bsf3Mzl";
+          
 
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");

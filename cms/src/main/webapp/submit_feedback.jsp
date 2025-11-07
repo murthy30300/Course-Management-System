@@ -21,8 +21,11 @@
         Class.forName("com.mysql.cj.jdbc.Driver");
         
         // Establish the connection to the database
-        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
-
+       // conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "root", "admin");
+String dbURL = "jdbc:mysql://mysql-1811be34-slack-to-surplus.k.aivencloud.com:26890/db?sslmode=require";
+        String dbUser = "avnadmin";
+        String dbPassword = "AVNS_dn_iG7IFkq48bsf3Mzl";
+         conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
         // Prepare the SQL query to update feedback and score
         String sql = "UPDATE submissions SET feedback = ?, score = ? WHERE submission_id = ?";
         pstmt = conn.prepareStatement(sql);
